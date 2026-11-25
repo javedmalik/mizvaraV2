@@ -1,0 +1,17 @@
+import { pageSeo } from "@/lib/seo";
+import { T } from "@/components/language-provider";
+import { Reveal } from "@/components/motion/reveal";
+import { InnerHero, InnerCta } from "@/components/inner-page/inner-page";
+import { Check, FileCheck2, Globe2, PackageSearch, Ship, ArrowRight } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import styles from "@/components/inner-page/inner-page.module.css";
+export const metadata = pageSeo("/export-import", "Export & Import", "Learn about MIZAVARA Global export and import enquiry workflows.");
+const steps = [{i:PackageSearch,t:"Requirement review",d:"Share the product, specification, quantity, destination and expected schedule."},{i:FileCheck2,t:"Offer & documentation",d:"We coordinate availability, commercial details and applicable documents."},{i:Ship,t:"Supply coordination",d:"Confirmed requirements move through packaging, dispatch and logistics coordination."}];
+const requirements = ["Product name and specification","Required quantity and packaging","Destination country and port","Target delivery schedule","Applicable certifications or documents"];
+export default function TradePage(){return <main className={styles.page}>
+ <InnerHero label="Export & Import" eyebrow="Global trade" title="Connecting products with the right markets" description="We support structured export and import enquiries with attention to product requirements, documentation and dependable coordination." image="wholesale-warehouse.webp" target="#trade-process" action="Explore the trade process"/>
+ <section id="trade-process" className={`site-container ${styles.section} ${styles.split}`} aria-labelledby="trade-heading"><div><p className={styles.kicker}><T text="How it works"/></p><h2 id="trade-heading"><T text="A clear route from enquiry to supply"/></h2><div className={styles.steps}>{steps.map(({i:Icon,t,d},idx)=><Reveal key={t} delay={idx*.08}><article className={styles.step}><span className={styles.stepIcon}><Icon size={23} aria-hidden="true"/></span><div><span className={styles.stepLabel}><T text="STEP"/> 0{idx+1}</span><h3><T text={t}/></h3><p><T text={d}/></p></div></article></Reveal>)}</div></div><aside className={styles.panel}><Globe2 size={46} strokeWidth={1.3} aria-hidden="true"/><h2><T text="Information needed for a trade enquiry"/></h2><ul className={styles.checklist}>{requirements.map(x=><li key={x}><Check size={19} aria-hidden="true"/><T text={x}/></li>)}</ul><p className={styles.note}><T text="Availability, certifications and shipment terms will be confirmed for each specific enquiry."/></p></aside></section>
+ <section className={styles.soft}><div className={`site-container ${styles.section} ${styles.split}`}><div className={styles.art}><Image src="/images/v2/hero-collection.webp" alt="" fill sizes="(max-width: 700px) 95vw, 48vw" className={styles.photo}/></div><Reveal><p className={styles.kicker}><T text="Discover Our Collection"/></p><h2><T text="Our wholesale Makhana range"/></h2><p className={styles.copy}><T text="Share your product, quantity and packaging requirements with our team."/></p><div className={styles.actions}><Link href="/products" className={styles.button}><T text="Explore Products"/><ArrowRight size={18} aria-hidden="true"/></Link><Link href="/wholesale" className={styles.outline}><T text="Wholesale & Bulk Supply"/></Link></div></Reveal></div></section>
+ <InnerCta title="Discuss your trade requirements" description="Share the product, specification, quantity, destination and expected schedule."/>
+ </main>}

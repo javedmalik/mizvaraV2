@@ -1,0 +1,41 @@
+.section { padding: 18px 0 54px; background: var(--brand-ivory); color: var(--brand-green); }
+.heading { position: relative; text-align: center; margin-bottom: 24px; }
+.eyebrow { color: var(--brand-gold-ink); font-size: .72rem; font-weight: 750; letter-spacing: .22em; text-transform: uppercase; margin-bottom: 7px; }
+.title { font: 700 clamp(2.1rem, 3.5vw, 3.25rem)/1.05 var(--font-display), Georgia, serif; letter-spacing: -.035em; }
+.all { display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--brand-gold-ink); border-radius: 99px; padding: 10px 16px; font-size: .78rem; font-weight: 700; margin-top: 14px; }
+.grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 18px; perspective: 1200px; }
+.card { --tone: #f4e9d4; --accent: #795f2a; position: relative; isolation: isolate; overflow: hidden; border: 1px solid #fff; border-radius: 24px; min-height: 222px; background: var(--tone); box-shadow: 0 8px 22px #123c2f0b; transform-style: preserve-3d; }
+.card[data-tone="spicy"] { --tone: #fce5d2; --accent: #a03419; }
+.card[data-tone="mint"] { --tone: #e7ecd4; --accent: #376227; }
+.art { position: absolute; inset: 0 0 0 43%; z-index: -1; overflow: hidden; mask-image: linear-gradient(90deg,transparent,#000 21%); }
+.image { object-fit: cover; object-position: right center; transition: transform .45s ease; }
+.copy { position: relative; width: 55%; padding: 19px 0 16px 18px; }
+.icon { color: var(--accent); margin-bottom: 5px; }
+.copy h3 { font: 700 clamp(1.5rem, 2vw, 2rem)/.97 var(--font-display), Georgia, serif; letter-spacing: -.025em; }
+.copy p { font-size: .76rem; line-height: 1.4; margin: 8px 0; }
+.sizes { display: flex; flex-wrap: wrap; gap: 5px; }
+.sizes span { border: 1px solid var(--accent); border-radius: 99px; padding: 3px 8px; font-size: .7rem; }
+.link { display: inline-flex; align-items: center; gap: 6px; font-size: .8rem; font-weight: 750; min-height: 44px; }
+.link:hover,.all:hover { text-decoration: underline; }
+.link:focus-visible,.all:focus-visible { outline: 2px solid var(--brand-green); outline-offset: 3px; }
+@media (min-width: 1200px) { .heading { padding-inline: 185px; } .all { position: absolute; right: 0; bottom: 0; margin: 0; } }
+@media (hover:hover) and (prefers-reduced-motion:no-preference) { .card:hover .image { transform: scale(1.06); } }
+@media (max-width: 1000px) { .grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 650px) { .section { padding: 14px 0 34px; } .grid { grid-template-columns: 1fr; gap: 12px; } .card { min-height: 210px; } .copy { padding-left: 16px; } }
+@media (prefers-reduced-motion:reduce) { .image { transition: none; } }
+/* Compact packaging-led layout matching approved reference. */
+.section { padding: 24px 0 20px; }
+.card { --tone:#f3eddf; min-height:230px; border-radius:18px; }
+.card[data-tone="spicy"],.card[data-tone="mint"] { --tone:#f3eddf; }
+.art { inset:0 auto 0 0; width:51%; mask-image:linear-gradient(90deg,#000 87%,transparent); }
+.image { object-fit:contain; object-position:center; }
+.copy { width:49%; margin-left:51%; padding:22px 12px 16px 5px; }
+.copy h3 { font:800 clamp(1.05rem,1.55vw,1.5rem)/1.1 var(--font-body),sans-serif; }
+.link { background:#123c2f; color:#fff; border-radius:99px; padding:6px 12px; min-height:38px; margin-top:10px; font-size:.74rem; }
+@media(max-width:650px){.card{min-height:210px}.copy{padding:18px 8px 12px 5px}}
+
+@media(max-width:767px){.section{padding:8px 0 20px}.heading{margin-bottom:12px}.title{font-size:1.55rem}.eyebrow{font-size:.58rem;letter-spacing:.12em}.all{margin-top:8px;padding:6px 10px;font-size:.65rem}.grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;perspective:none}.card{min-height:0;border-radius:12px;display:flex;flex-direction:column;transform-style:flat}.art{position:relative;inset:auto;width:100%;aspect-ratio:1/1.1;mask-image:none;z-index:0}.copy{width:100%;margin:0;padding:5px 5px 8px;text-align:center}.copy h3{font-size:.78rem;line-height:1.15}.copy p{display:none}.sizes{justify-content:center;gap:3px;margin:5px 0}.sizes span{font-size:.57rem;padding:2px 4px}.link{width:100%;justify-content:center;font-size:.6rem;min-height:36px;padding:5px 2px;gap:2px;margin:3px 0 0}.link svg{width:11px}.container{width:calc(100% - 24px)}}
+
+/* Transparent pouches require no gradient mask. */
+.art { mask-image: none; }
+.image { object-fit: contain; }

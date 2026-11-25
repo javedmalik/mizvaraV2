@@ -1,0 +1,21 @@
+.section { padding: clamp(1.5rem,4vw,3.5rem) 0; }
+.banner { position:relative; display:grid; grid-template-columns: 46% 54%; overflow:hidden; isolation:isolate; border:1px solid #b69a5a80; border-radius: 1.75rem; background:#123c2f; color:#f7f4ea; box-shadow:0 18px 48px #123c2f19; }
+.art { position:relative; min-height: 100%; overflow:hidden; }
+.art::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,transparent 45%,#123c2f 100%); pointer-events:none; }
+.image { object-fit:cover; object-position:78% center; transition:transform .8s ease; }
+.banner:hover .image { transform:scale(1.035); }
+.copy { position:relative; padding:clamp(1.6rem,4vw,3.5rem); min-width:0; }
+.eyebrow { display:flex; align-items:center; gap:.6rem; color:#e0cb95; font-weight:700; font-size:.75rem; letter-spacing:.13em; text-transform:uppercase; }
+.copy h2 { font-family:var(--font-display),Georgia,serif; font-size:clamp(2.8rem,4.5vw,4.6rem); line-height:.98; font-weight:700; margin:1rem 0; }
+.copy h2 span { color:#e0cb95; }
+.copy > p:not(.eyebrow):not(.packLabel) { max-width:38rem; color:#f7f4ea; line-height:1.65; }
+.packLabel { font-size:.85rem; font-weight:700; margin:1.4rem 0 .7rem; }
+.packs { display:flex; flex-wrap:wrap; gap:.6rem; }
+.packs span { border:1px solid #b69a5a; padding:.55rem .9rem; border-radius:999px; font-size:.85rem; font-weight:700; }
+.cta { display:inline-flex; align-items:center; justify-content:center; gap:.7rem; min-height:48px; border-radius:.8rem; padding:.8rem 1.2rem; background:#b69a5a; color:#123c2f; font-weight:800; margin-top:1.5rem; transition:background .2s,transform .2s; }
+.cta:hover { background:#e0cb95; transform:translateY(-2px); }
+.cta:focus-visible { outline:2px solid #f7f4ea; }
+.copy small { display:block; color:#e5e1d4; font-size:.75rem; margin-top:1rem; line-height:1.6; }
+@media(max-width:899px) { .banner { grid-template-columns:1fr; } .art { min-height:240px; aspect-ratio:16/9; } .art::after { background:linear-gradient(180deg,transparent 60%,#123c2f 100%); } .copy { padding:1.5rem; } }
+@media(max-width:480px) { .cta { width:100%; } .art { min-height:180px; } .packs span { padding:.45rem .7rem; } }
+@media(prefers-reduced-motion:reduce) { .image,.cta { transition:none; } .banner:hover .image,.cta:hover { transform:none; } }
